@@ -62,7 +62,7 @@ Ensure you have the following dependencies installed before running the script:
 
 3. Run the script using:
 
-`python dataProcessing(new).py`
+`python main.py`
 
 ### Expected Output
 
