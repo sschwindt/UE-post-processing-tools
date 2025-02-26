@@ -96,7 +96,7 @@ For further details about the workflow of the code, please refer to the flowchar
 The `auxiliary component variable` is highlighted in green.
 
 ![flowChart](https://github.com/Benni1998/post-processing-tools-for-Unreal-Engine-simulations/blob/main/images/flowChart.png)
-*<sub>General flow chart of the provided code in `dataProcessing` (source: Benjamin Kemmler 2025).</sub>*
+*<sub>General flow chart of the provided code (source: Benjamin Kemmler 2025).</sub>*
 
 
 
