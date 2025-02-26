@@ -15,7 +15,7 @@ from matplotlib.ticker import MultipleLocator
 # Global configuration variables for the project
 
 # Path to the log file
-file_path = r'G:\BenniPython\TechnicalFishPass.log'
+file_path = r'G:\PythonFiles\TechnicalFishPass.log'
 
 
 # Limits for the x-Axis of the plots per Cross-section
