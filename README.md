@@ -106,7 +106,10 @@ Get ready by cloning the exercise repository:
 git clone https://github.com/Benni1998/post-processing-tools-for-Unreal-Engine-simulations.git
 ```
 
-For any issues, please refer to the script comments stated below.
+
+## Documentation
+
+For any issues, please refer to the comments from the script listed below.
 ### Calculation Class
 ```
     def __call__(self, section):
