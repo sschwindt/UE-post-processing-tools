@@ -93,6 +93,7 @@ Modify multiple parameters in `config.py` to adjust the in- and output
 
 
 For further details about the workflow of the code, please refer to the flowchart below.
+
 The `auxiliary component variable` is highlighted in green.
 
 ![flowChart](https://github.com/Benni1998/post-processing-tools-for-Unreal-Engine-simulations/blob/main/images/flowChart.png)
