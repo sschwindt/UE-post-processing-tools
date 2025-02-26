@@ -90,7 +90,7 @@ Modify multiple parameters in `config.py` to adjust the in- and output
 
 
 
-
+## Code diagram
 
 For further details about the workflow of the code, please refer to the flowchart below.
 
