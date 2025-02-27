@@ -101,7 +101,7 @@ The `auxiliary component variable` is highlighted in green.
 
 
 
-Get ready by cloning the exercise repository:
+Get ready by cloning the repository:
 
 ```
 git clone https://github.com/Benni1998/post-processing-tools-for-Unreal-Engine-simulations.git
