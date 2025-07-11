@@ -27,7 +27,7 @@ class Calculation:
         sections = []
         current_section = []
 
-        with open(file_path, 'r') as file:
+        with open(get_file_path(), 'r') as file:
             for line in file:
                 if "STOP" in line:          #check if section is concluded
                     sections.append(current_section)

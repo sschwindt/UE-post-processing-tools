@@ -53,7 +53,7 @@ See `images/dataFileExample.png` for a sample.
 
 ---
 
-## Quick Start
+## Quick Start and Usage
 
 1. **Clone the repository:**
 
@@ -64,7 +64,6 @@ cd UE-post-processing-tools
 
 2. **Configure the tool:**
    - Edit `config.py` to set:
-     - `file_path`: Path to your `.log` file
      - `xs_limits`: X-axis limits for each cross-section
      - `Vmax`: Maximum value for the colorbar
      - `radius`: Point radius in scatterplots
@@ -72,12 +71,27 @@ cd UE-post-processing-tools
      - `limit`: The velocity threshold value
      - `var1`, `var2`, `var3`: Global variables for auxiliary calculations
 
-3. **Place your `.log` file** in the project directory (or update `file_path` in `config.py` accordingly).
+3. **Place your `.log` file** in the project directory (or provide the path when running the script).
 
 4. **Run the processor:**
-   ```bash
-python logfile_processor.py
+
+```bash
+python logfile_processor.py [your_logfile.log]
 ```
+- If you provide a log file name as an argument, it will be used for processing.
+- If you omit the argument, the default log file set in `config.py` will be used.
+
+---
+
+## Command-Line Usage
+
+You can specify the log file to process directly from the command line:
+
+```bash
+python logfile_processor.py path/to/your_logfile.log
+```
+
+If no argument is given, the script will use the default log file path defined in `config.py`.
 
 ---
 

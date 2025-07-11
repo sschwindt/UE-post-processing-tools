@@ -1,5 +1,8 @@
 from get_particle_attributes import *
 from plotter import *
+import sys
+import argparse
+from config import set_file_path
 
 
 class LogFileProcessor:
@@ -130,7 +133,11 @@ class LogFileProcessor:
 
         if valid_particle_count > 0:
             current_xs = particle_attributes.determine_xs(data, section_number)
-            left_value, right_value = xs_limits.get(current_xs)
+            xs_limit = xs_limits.get(current_xs)
+            if xs_limit is None:
+                print(f"Warning: No x-axis limits found for XS {current_xs}. Skipping section {section_number}.")
+                return
+            left_value, right_value = xs_limit
             avg_particle = avg_particles.get(current_xs, 0)
 
             print(f'Section {section_number}: Count of valid particles: {valid_particle_count}')
@@ -150,5 +157,10 @@ class LogFileProcessor:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Process a log file.")
+    parser.add_argument("logfile", nargs="?", default=None, help="Path to the logfile to process.")
+    args = parser.parse_args()
+    if args.logfile:
+        set_file_path(args.logfile)
     log_file_processor = LogFileProcessor()
     log_file_processor()

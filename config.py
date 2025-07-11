@@ -16,7 +16,14 @@ from matplotlib.ticker import MultipleLocator
 # Global configuration variables for the project
 
 # Path to the log file
-file_path = os.path.join(os.path.dirname(__file__), 'TechnicalFishPassOneSectionC150KShort.log')
+_file_path = os.path.join(os.path.dirname(__file__), 'TechnicalFishPassOneSectionC150KShort.log')
+
+def get_file_path():
+    return _file_path
+
+def set_file_path(path):
+    global _file_path
+    _file_path = path
 
 
 # Limits for the x-Axis of the plots per Cross-section

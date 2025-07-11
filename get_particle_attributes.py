@@ -15,7 +15,7 @@ class ParticleAttibuteCalculator:
 
         Returns:
             np.ndarray: Array of valid particle data.
-        """Class
+        """
         return self.extract_valid_particles(section)
 
     def extract_sections(self):
@@ -27,7 +27,7 @@ class ParticleAttibuteCalculator:
         sections = []
         current_section = []
 
-        with open(file_path, 'r') as file:
+        with open(get_file_path(), 'r') as file:
             for line in file:
                 if "STOP" in line:          #check if section is concluded
                     sections.append(current_section)
