@@ -16,7 +16,7 @@ from matplotlib.ticker import MultipleLocator
 # Global configuration variables for the project
 
 # Path to the log file
-_file_path = os.path.join(os.path.dirname(__file__), 'TechnicalFishPassOneSectionC150KShort.log')
+_file_path = os.path.join(os.path.dirname(__file__), 'VSF-logfile-example-small.log')
 
 def get_file_path():
     return _file_path

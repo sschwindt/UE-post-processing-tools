@@ -36,11 +36,11 @@ class LogFileProcessor:
         for section_number, section in enumerate(sections, start=1):
             self.process_section(section, particle_attributes, plotter, avg_particles, section_number)
 
-        self.calculate_panda_values()
+        self.calculate_pandas_values()
         particle_attributes.sum_global_var()
         plotter.subtract_global_var()
 
-    def calculate_panda_values(self):
+    def calculate_pandas_values(self):
         """
         Processes collected particle data using Pandas for statistical analysis and storage.
 
