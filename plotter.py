@@ -1,7 +1,6 @@
 from config import *
 
 
-
 class Plotter:
     """
     Generates scatter plots visualizing particle data.

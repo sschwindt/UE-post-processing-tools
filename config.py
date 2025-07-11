@@ -1,5 +1,6 @@
 #config.py
 
+import os
 import subprocess
 
 import matplotlib.pyplot as plt
@@ -15,7 +16,7 @@ from matplotlib.ticker import MultipleLocator
 # Global configuration variables for the project
 
 # Path to the log file
-file_path = r'G:\post-processing-tools-for-Unreal-Engine-simulations\TechnicalFishPassOneSectionC150KShort.log'
+file_path = os.path.join(os.path.dirname(__file__), 'TechnicalFishPassOneSectionC150KShort.log')
 
 
 # Limits for the x-Axis of the plots per Cross-section
