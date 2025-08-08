@@ -7,16 +7,23 @@ from config import set_file_path
 
 class LogFileProcessor:
     """
-    Main driver class to process the log file, analyze sections, and generate plots.
+    Main driver class to process the logfile, analyze sections, and generate plots.
     """
 
-    def __init__(self):
+    def __init__(self, mode="normal"):
         """
-        Initializes the main class.
+        Initializes the main class and a data_list (list): A list to store data elements.
 
-        Initializes data_list (list): A list to store data elements.
+        Parameters
+        ----------
+        mode : bool
+            Defaults is "normal". If set to "qualitative", no axis will be plotted.
         """
         self.data_list: list = []
+        if mode == "normal":
+            self.plot_axis = True
+        else:
+            self.plot_axis = False
 
 
     def __call__(self):
@@ -25,7 +32,7 @@ class LogFileProcessor:
         """
 
         particle_attributes = ParticleAttibuteCalculator()
-        plotter = Plotter()
+        plotter = Plotter(self.plot_axis)
 
         sections = particle_attributes.extract_sections()
 
@@ -112,8 +119,6 @@ class LogFileProcessor:
         """
         Processes a single section of data.
 
-        TODO: Implemented auxiliary component as create_pictures
-
         Args:
             section (list): List of strings representing the section.
             particle_attributes (ParticleAttibuteCalculator): Instance of the ParticleAttibuteCalculator class.
@@ -162,5 +167,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.logfile:
         set_file_path(args.logfile)
-    log_file_processor = LogFileProcessor()
+    mode = "normal"
+    log_file_processor = LogFileProcessor(mode=mode)
     log_file_processor()

@@ -35,6 +35,8 @@ Install dependencies with:
 pip install numpy pandas matplotlib
 ```
 
+> **Important:** On newest Ubuntu-based Linux Mint releases, pip only works within activated conda or virtual environments.
+
 ---
 
 ## Input Data Format
@@ -81,6 +83,7 @@ python logfile_processor.py [your_logfile.log]
 - If you provide a log file name as an argument, it will be used for processing.
 - If you omit the argument, the default log file set in `config.py` will be used.
 
+> **Note:** The code can be modified to not plot any axes by setting `mode = "normal"` to `mode = "qualitative"`. This was implemented to allow for comparison with the axis-less output of ParaView-processed OpenFOAM.
 ---
 
 ## Command-Line Usage
@@ -115,7 +118,7 @@ Edit `config.py` to customize behavior:
 - `limit`: Minimum velocity threshold
 - `var1`, `var2`, `var3`: Auxiliary variables for custom calculations
 
----
+---"
 
 ## Code Structure
 
