@@ -12,8 +12,8 @@ from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 mpl.rcParams.update({
     "font.family": "Ubuntu",
     "font.weight": "light",
-    "font.size": 10.5,
-    "figure.dpi": 400,
+    "font.size": 10,
+    "figure.dpi": 500,
 })
 
 
@@ -71,7 +71,6 @@ class Plotter:
                 sd_velocity,
                 section_number
             )
-        fig.subplots_adjust(top=0.90)
         self._save(fig, section_number)
 
 
@@ -108,6 +107,7 @@ class Plotter:
         # Axis limits
         ax.set_xlim(0, x.max())
         ax.set_ylim(0, y.max())
+        ax.set_aspect('equal', adjustable='box')  # 1 unit x == 1 unit y
 
         # Grid and tick layout
         ax.grid(True, which="both", linestyle="--", color="grey", linewidth=0.4)
@@ -119,7 +119,7 @@ class Plotter:
         ax.xaxis.set_major_locator(MultipleLocator(x_tick_step))
         ax.xaxis.set_major_formatter(FuncFormatter(every_fifth_x))
         # Y: only every 5th tick labeled (0.00, 0.05, 0.10, ...)
-        y_tick_step = 0.01
+        y_tick_step = 0.05
         def every_fifth(val, _):
             return f"{val:.2f}" if (round(val * 100) % 5 == 0) else ""
         ax.yaxis.set_major_locator(MultipleLocator(y_tick_step))
@@ -129,19 +129,29 @@ class Plotter:
 
     @staticmethod
     def _add_colorbar(fig, ax_scatter):
-        mappable = ax_scatter.collections[0]  # your scatter/stream mappable (norm 0–2)
-
+        mappable = ax_scatter.collections[0]  # uses Normalize(0, 2)
         cb_ax = inset_axes(
             ax_scatter,
-            width="100%", height="4%",  # thin, full-width bar
+            width="100%", height="50%",  # thin, full-width bar
             loc="upper center",
-            bbox_to_anchor=(0, 1.02, 1, 0.05),  # x0,y0,w,h in axes coords
+            bbox_to_anchor=(0, 1.0, 1, 0.2),  # x0,y0,w,h in axes coords
             bbox_transform=ax_scatter.transAxes,
             borderpad=0,
         )
-        cbar = fig.colorbar(ax_scatter.collections[0],
-                            ax=ax_scatter, orientation="horizontal",
-                            location="top", pad=0.05)
+        cbar = fig.colorbar(mappable, cax=cb_ax, orientation="horizontal")
+
+        # show ticks/label only on top
+        cbar.ax.xaxis.set_ticks_position("top")
+        cbar.ax.xaxis.set_label_position("top")
+        cbar.ax.tick_params(which="both", bottom=False, labelbottom=False,
+                            top=True, labeltop=True)
+
+        # optional: control tick values
+        cbar.set_ticks([0.0, 0.5, 1.0, 1.5, 2.0])
+
+        # make room above axes
+        fig.subplots_adjust(top=0.9)
+        cbar.set_label(r"Velocity (m s$^{-1}$)")
 
     @staticmethod
     def _add_title(fig,
