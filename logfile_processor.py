@@ -5,6 +5,10 @@ import argparse
 from config import set_file_path
 
 
+# --- Logfile defaults ---
+DEFAULT_LOGFILE = "VSF-logfile-example-small.log"
+
+
 class LogFileProcessor:
     """
     Main driver class to process the logfile, analyze sections, and generate plots.
@@ -167,6 +171,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.logfile:
         set_file_path(args.logfile)
-    mode = "normal"
+    else:
+        set_file_path(DEFAULT_LOGFILE)
+    mode = "qualitative"
     log_file_processor = LogFileProcessor(mode=mode)
     log_file_processor()
