@@ -73,9 +73,13 @@ cd UE-post-processing-tools
      - `limit`: The velocity threshold value
      - `var1`, `var2`, `var3`: Global variables for auxiliary calculations
 
-3. **Place your `.log` file** in the project directory (or provide the path when running the script).
+3. **Review *logfile_processory.py***
+  - Check name of target logfile (`DEFAULT_LOGFILE`)
+  - Verify `MODE` argument: `"normal"` plots x and y (i.e., z) axes of the cross section; `"qualitative"` removes all axis, which can be useful for qualitative comparisons with scalar fields produced with other software (e.g., ParaView/OpenFOAM).
 
-4. **Run the processor:**
+4. **Place your `.log` file** in the project directory (or provide the path when running the script).
+
+5. **Run the processor:**
 
 ```bash
 python logfile_processor.py [your_logfile.log]
