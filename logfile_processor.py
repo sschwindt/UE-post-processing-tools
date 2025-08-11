@@ -6,7 +6,8 @@ from config import set_file_path
 
 
 # --- Logfile defaults ---
-DEFAULT_LOGFILE = "VSF-logfile-example-small.log"
+DEFAULT_LOGFILE = "VSF-logfile-example.py"  # "logfile-data/HQ100.log"
+MODE = "normal"  # "normal" to plot with axes; "qualitative" to plot without axes
 
 
 class LogFileProcessor:
@@ -173,6 +174,5 @@ if __name__ == "__main__":
         set_file_path(args.logfile)
     else:
         set_file_path(DEFAULT_LOGFILE)
-    mode = "qualitative"
-    log_file_processor = LogFileProcessor(mode=mode)
+    log_file_processor = LogFileProcessor(mode=MODE)
     log_file_processor()
